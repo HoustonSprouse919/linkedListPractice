@@ -96,6 +96,19 @@ this.head = newNode;
           }
           console.log(valueStat);
           return valueStat;
+    },
+    toString(){
+        let string ="The string is "
+        let current = this.head;
+        function iterate(current){
+          if(current != null){
+              string += current.value + " -> ";
+              iterate(current.next)
+          }
+        }
+        iterate(current);
+          console.log(string + null);
+          return string + null;
     }
 }
 }
@@ -114,3 +127,4 @@ list.getTail();
 list.at(1);
 list.pop();
 list.contains(3);
+list.toString();
