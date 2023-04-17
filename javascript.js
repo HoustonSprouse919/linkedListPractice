@@ -44,13 +44,73 @@ this.head = newNode;
         console.log("the list is " + sizeNum + " long");
         }
     },
+    getHead(){
+        if(this.head == null){
+            console.log("The List is empty")
+            return null
+        } else{
+            console.log(this.head)
+            return this.head
+        }
+    },
+    getTail(){
+         if(this.head == null){
+             let tail = null;
+      }else{
+          let tail = this.head;
+          while(tail.next != null){
+              tail = tail.next
+          }
+          console.log(tail);
+          return tail;
+      }
+    },
+    at(index){
+        if(index ==0){
+            return this.head;
+        } else {
+            let current = this.head;
+            for(let i=0; i<index; i++){
+                current = current.next;
+            }
+            console.log(current);
+            return current;
+        }
+    },
+    pop(){
+        let tail = list.getTail();
+        let current = this.head;
+        while(current.next != tail){
+            current = current.next;
+        }
+        current.next = null;
+    },
+    contains(value){
+        let valueStat;
+         let current = this.head;
+          while(current.next != null){
+              if(current.value == value){
+                  valueStat = true;
+              }
+              current = current.next;
+          }
+          console.log(valueStat);
+          return valueStat;
+    }
 }
 }
 let list = linkedList();
 list.append(2);
 list.append(3);
+list.append(4);
+list.append(5);
 list.prepend(55);
 console.log(list);
 console.log(list.head.next);
 console.log(list.head.next.next);
-list.size()
+list.size();
+list.getHead();
+list.getTail();
+list.at(1);
+list.pop();
+list.contains(3);
